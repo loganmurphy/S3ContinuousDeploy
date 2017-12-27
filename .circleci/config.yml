@@ -1,22 +1,25 @@
-## Customize the test machine
-machine:
+version: 2
 
-  timezone:
-    America/Los_Angeles # Set the timezone
+jobs:
+  build:
+    machine:
 
-  node:
-    version:
-       9.3.0
+    timezone:
+      America/Los_Angeles # Set the timezone
 
-dependencies:
-    override:
-        - sudo pip install awscli
+    node:
+      version:
+         9.3.0
 
-deployment:
-  prod:
-    branch: master
-    commands:
-      - aws s3 sync /home/ubuntu/test-bucket-ci2000 s3://s3awscd --delete
+    dependencies:
+        override:
+            - sudo pip install awscli
+
+    deployment:
+      prod:
+        branch: master
+        commands:
+          - aws s3 sync /home/ubuntu/test-bucket-ci2000 s3://s3awscd --delete
 
 
 # version: 2
