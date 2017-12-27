@@ -1,17 +1,16 @@
 
 version: 2
 jobs:
-  build:
-      dependencies:
-          override:
-              - sudo pip install awscli
-      deployment:
-        prod:
-          branch: master
-          commands:
-            - aws s3 sync /home/ubuntu/test-bucket-ci2000 s3://s3awscd --delete
+  dependencies:
+      override:
+          - sudo pip install awscli
+  deployment:
+    prod:
+      branch: master
+      commands:
+        - aws s3 sync /home/ubuntu/test-bucket-ci2000 s3://s3awscd --delete
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - deployment
