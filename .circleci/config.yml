@@ -1,12 +1,13 @@
-version: 1
+version: 2
 
-# jobs:
-#   build:
-#     steps:
+jobs:
+  build:
+    steps:
+      - run
 dependencies:
     override:
         - sudo pip install awscli
-deployment:
+-deployment:
   prod:
     branch: master
     commands:
