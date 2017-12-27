@@ -2,12 +2,12 @@
 version: 2
 jobs:
   build:
-    
+
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - deployment
+
 dependencies:
     override:
         - sudo pip install awscli
