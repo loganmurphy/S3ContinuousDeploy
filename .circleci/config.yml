@@ -2,24 +2,25 @@ version: 2
 
 jobs:
   build:
-    machine:
+    steps:
+      machine:
 
-    timezone:
-      America/Los_Angeles # Set the timezone
+      timezone:
+        America/Los_Angeles # Set the timezone
 
-    node:
-      version:
-         9.3.0
+      node:
+        version:
+           9.3.0
 
-    dependencies:
-        override:
-            - sudo pip install awscli
+      dependencies:
+          override:
+              - sudo pip install awscli
 
-    deployment:
-      prod:
-        branch: master
-        commands:
-          - aws s3 sync /home/ubuntu/test-bucket-ci2000 s3://s3awscd --delete
+      deployment:
+        prod:
+          branch: master
+          commands:
+            - aws s3 sync /home/ubuntu/test-bucket-ci2000 s3://s3awscd --delete
 
 
 # version: 2
