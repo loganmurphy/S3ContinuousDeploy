@@ -1,8 +1,8 @@
 version: 2
 
-jobs:
-  build:
-    steps:
+# jobs:
+#   build:
+#     steps:
 dependencies:
     override:
         - sudo pip install awscli
