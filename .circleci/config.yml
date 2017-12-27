@@ -3,20 +3,10 @@ version: 2
 jobs:
   build:
     steps:
-      machine:
-
-      timezone:
-        America/Los_Angeles # Set the timezone
-
-      node:
-        version:
-           9.3.0
-
-      dependencies:
+      -dependencies:
           override:
               - sudo pip install awscli
-
-      deployment:
+      -deployment:
         prod:
           branch: master
           commands:
